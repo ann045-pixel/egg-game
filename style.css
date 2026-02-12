@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;  /* ← ДОБАВИЛ ЭМОДЗИ */
+    background: #2a5c4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score, .level {
+    background: rgba(255,255,255,0.9);
+    padding: 8px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+
+.lives {
+    background: rgba(255,255,255,0.9);
+    padding: 8px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    background: #7ec850;
+    background-image: linear-gradient(45deg, #6bb542 25%, transparent 25%),
+                      linear-gradient(-45deg, #6bb542 25%, transparent 25%);
+    background-size: 30px 30px;
+    cursor: pointer;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn {
+    background: #ffd966;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #b38f40;
+    transition: 0.1s;
+}
+
+.btn:active {
+    transform: translateY(8px);
+    box-shadow: 0 0 0 #b38f40;
+}
+
+/* 👇 ДОБАВИЛ ПОДДЕРЖКУ ЭМОДЗИ НА CANVAS */
+canvas {
+    font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif !important;
+}
+
+@media (max-width: 500px) {
+    .game-container {
+        max-width: 100%;
+        border-radius: 0;
+    }
+}
