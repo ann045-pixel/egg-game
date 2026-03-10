@@ -107,7 +107,6 @@ body {
     box-shadow: 0 0 0 #b38f40;
 }
 
-/* 👇 ДОБАВИЛ ПОДДЕРЖКУ ЭМОДЗИ НА CANVAS */
 canvas {
     font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif !important;
 }
@@ -117,4 +116,5 @@ canvas {
         max-width: 100%;
         border-radius: 0;
     }
+
 }
