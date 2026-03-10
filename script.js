@@ -11,7 +11,7 @@ let gameState = {
     score: 0,
     level: 1,
     lives: 3,
-    eggs: [],        // Здесь будут и яйца, и пауки
+    eggs: [],        // Здесь будут яйца и пауки
     basketX: canvas.width / 2 - 30,
     eggSpawnTimer: 0,
     EGG_SPAWN_INTERVAL: 40
@@ -65,13 +65,13 @@ function updateItems() {
         let item = gameState.eggs[i];
         item.y += item.speed;
         
-        // ПРОВЕРКА СБОРА - предмет в корзине
+        // ПРОВЕРКА СБОРА
         if (item.y > 420 && item.y < 460 && 
             item.x > gameState.basketX - 5 && item.x < gameState.basketX + 65) {
             
             gameState.eggs.splice(i, 1);
             
-            // ЕСЛИ ЭТО ЯЙЦО 🥚
+            // ЕСЛИ ЭТО ЯЙЦО 
             if (item.type === 'egg') {
                 gameState.score += 1;
                 gameState.level = Math.floor(gameState.score / 50) + 1;
@@ -79,7 +79,7 @@ function updateItems() {
                 if (levelElement) levelElement.textContent = gameState.level;
             }
             
-            // ЕСЛИ ЭТО ПАУК 🕷️
+            // ЕСЛИ ЭТО ПАУК 
             else if (item.type === 'spider') {
                 gameState.lives -= 1;
                 updateLivesDisplay();
@@ -91,7 +91,7 @@ function updateItems() {
             }
         }
         
-        // ПРОВЕРКА ПРОМАХА - предмет упал на землю
+        // ПРОВЕРКА ПРОМАХА 
         else if (item.y > canvas.height - 20) {
             gameState.eggs.splice(i, 1);
             
@@ -166,7 +166,7 @@ function gameLoop() {
     
     gameState.eggSpawnTimer++;
     if (gameState.eggSpawnTimer >= gameState.EGG_SPAWN_INTERVAL) {
-        spawnItem();  // ← ТЕПЕРЬ СОЗДАЁТ И ЯЙЦА, И ПАУКОВ
+        spawnItem();  
         gameState.eggSpawnTimer = 0;
     }
     
@@ -208,4 +208,5 @@ function startGame() {
 
 // ==================== КНОПКИ ====================
 if (startButton) startButton.addEventListener('click', startGame);
+
 if (restartButton) restartButton.addEventListener('click', startGame);
